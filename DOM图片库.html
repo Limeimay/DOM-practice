@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>用DOM建立图片库</title>
+    <style>
+        #placeholder {
+            width: 400px;
+            height: 300px;
+        }
+
+        p {
+        }
+    </style>
+    <script>
+        window.onload = prepareGallery;
+        var placeholder = document.createElement("img");
+        var desc = document.createElement("p");
+        
+        function prepareGallery() {
+            document.body.appendChild(placeholder);
+            document.body.appendChild(desc);
+            if (!document.getElementById) {
+                return false;
+            }
+            if (!document.getElementsByTagName) {
+                return false;
+            }
+            var gallery = document.getElementById("imggallery");
+            var links = gallery.getElementsByTagName("a");
+            for (var i = 0; i < links.length; i++) {
+                links[i].onclick = function () {
+                    showPic(this);
+                    return false;
+                }
+            }
+        }
+        function showPic(whichpic) {
+
+            var source = whichpic.href;
+            var text = whichpic.title;
+            placeholder.src = source;
+            desc.textContent = text;
+        }
+    </script>
+</head>
+<body>
+    <h1>Gallery</h1>
+    <ul id="imggallery">
+        <li><a href="Images/bicycle.jpg" title="a picture">bicycle</a></li>
+        <li><a href="Images/heart.jpg" title="a picture">heart</a></li>
+        <li><a href="Images/sunset.jpg" title="a picture">sunset</a></li>
+        <li><a href="Images/lufi.jpg" title="a picture">Lufi</a></li>
+    </ul>
+    <!--<img id="placeholder">
+    <p id="desc"></p>-->
+</body>
+</html>

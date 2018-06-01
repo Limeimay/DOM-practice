@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>画骰子</title>
+    <style>
+        #container {
+            display: flex;
+            display: -webkit-flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        body {
+            background: black;
+        }
+
+        .square {
+            width: 200px;
+            height: 200px;
+            background: white;
+            display: flex;
+            display: -webkit-flex;
+        }
+
+        .circle {
+            width: 50px;
+            height: 50px;
+            background: black;
+            -moz-border-radius: 25px;
+            -webkit-border-radius: 25px;
+            border-radius: 25px;
+        }
+
+        .column {
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        .row {
+            display: flex;
+            display: -webkit-flex;
+            justify-content: space-between;
+        }
+
+        #dot1 {
+            justify-content: flex-start;
+        }
+
+        #dot2 {
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #dot3 {
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #dot4 {
+            justify-content: space-between;
+        }
+
+        #dot5 {
+            justify-content: space-between;
+        }
+
+        #dot6 {
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="row">
+            <div id="dot1" class="square">
+                <div class="circle"></div>
+            </div>
+            <div id="dot2" class="square">
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="dot3" class="square">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+            <div id="dot4" class="square">
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="dot5" class="square">
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="circle" style="align-self: center"></div>
+                <div class="column">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
+            <div id="dot6" class="square">
+                <div class="row">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="row">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="row">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    packages.forEach(function (pack) {
+        pack.partIds.forEach(function1(partId))
+    })
+    function function1(param) {
+        t.parts.forEach(function2(param))
+    }
+    function function2(arg) {
+        if (part.id === arg) {
+            pack.parts.push(part)
+        }
+    }
+    packages.forEach(function (pack) {
+        pack.partIds.forEach(function (partId) {
+            t.parts.forEach(function (part) {
+                if (part.id === partId) {
+                    pack.parts.push(part)
+                }
+            })
+        })
+    })
+    packages.forEach(pack => t.parts.forEach(part => { if (pack.partIds.includes(part.id)) pack.parts.push(part) }))
+</script>
+
+</html>

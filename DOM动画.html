@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = moveMesg1;
+
+        function showMesg() {
+            var mesg = document.getElementById("mesg");
+            mesg.style.position = "absolute";
+            mesg.style.left = "50px";
+            mesg.style.top = "100px";
+            //for (var i = 50; i < 300; i++) {
+            //    //moveMesg(i)
+            //    //alert(mesg.style.left);
+            //    callBack(mesg, i)
+            //}
+
+        }
+        function moveMesg1() {
+            var elem = document.getElementById("mesg");
+            for (i = 50; i < 52; i++) {
+                
+                movement = setTimeout(function () {
+                    elem.style.left = i + "px";
+                }, 0.00001)
+            }
+        }
+        function moveMesg() {
+            var elem = document.getElementById("mesg");
+            var xpos = parseInt(elem.style.left);
+            var ypos = parseInt(elem.style.top);
+            if (xpos == 200 && ypos == 200) {
+                return true 
+            }
+            if (xpos < 200) {
+                xpos++
+            }
+            if (xpos > 200) {
+                xpos--
+            }
+            if (ypos < 200) {
+                ypos++
+            }
+            if (ypos > 200) {
+                ypos--
+            }
+            elem.style.left = xpos + "px";
+            elem.style.top = ypos + "px";
+            movement=setTimeout("moveMesg()",10)
+        }
+        function callBack(mesg, i) {
+            setTimeout("moveMesg()", 10)
+        }
+
+    </script>
+</head>
+<body>
+    <p id="mesg" style="position:absolute;top:100px;left:50px">message</p>
+</body>
+</html>

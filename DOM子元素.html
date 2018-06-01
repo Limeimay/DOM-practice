@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = createEle;
+        function createEle() {
+            var para = document.createElement("p");
+            var text = document.createTextNode("text");
+            var testdiv = document.getElementById("testdiv");
+            para.appendChild(text);
+            testdiv.appendChild(para);
+        }
+    </script>
+</head>
+<body>
+    <div id="testdiv">
+
+    </div>
+</body>
+</html>

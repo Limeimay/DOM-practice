@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        window.onload = getNewContent;
+        function getNewContent() {
+            var request = new XMLHttpRequest;
+            if (request) {
+                request.open('GET', 'ajax_server.txt', true)
+                request.onreadystatechange = function () {
+                    if (request.readyState == 4) {
+                        var p = document.createElement("p");
+                        var txt = document.createTextNode(request.responseText);
+                        document.body.appendChild(p);
+                        p.appendChild(txt);
+                    }
+                }
+                request.send(null);
+            }
+
+        else{
+            alert("sorry,your browser dosent aupport XMLhttpRequest");
+        }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

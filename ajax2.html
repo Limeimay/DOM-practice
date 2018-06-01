@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="script/jquery.js"></script>
+    <title>ajax with Json</title>
+    <script>
+    $(function(){
+        $('button').click(function(){
+            $.ajax({
+                url:'table.json',
+                data:{},
+                async:true,
+                success:function(data){
+                    $('div').html("my name is "+data.name+",I am "+data.age+"years old")
+                }
+            })
+        })
+    })
+    </script>
+</head>
+<body>
+    <button>点我</button>
+    <table></table>
+</body>
+</html>

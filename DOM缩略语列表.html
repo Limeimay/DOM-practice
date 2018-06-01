@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        //window.onload = displayAttr;
+        window.onload = displayCitations;
+        //这三个初始定义不能放在循环体以内，否则每次循环都会重新定义这几个变量。
+        //titles和txt放在循环体内每次循环它们的length都为1；
+        //definition放在循环体内出来的结果都只是最后一个i的内容
+        //缩略语列表
+        function displayAttr() {
+            var titles = [];
+            var txts = [];
+            //取得所有缩略词
+            var attrs = document.getElementsByTagName("attr");
+            var dlist = document.createElement("dl");
+            document.body.appendChild(dlist);
+            //遍历所有是缩略词
+            for (var i = 0; i < attrs.length; i++) {
+                var current_attr = attrs[i];
+                var txt = current_attr.textContent;
+                var title = current_attr.title;
+                titles.push(title);
+                txts.push(txt);
+            }
+            //分别放在两个循环体内，第二个循环体动态创建标记
+            for (var j = 0; j < attrs.length; j++) {
+                var dtitle = document.createElement("dt");
+                var dtitle_text = document.createTextNode(txts[j]);
+                var ddesc = document.createElement("dd");
+                var ddesc_text = document.createTextNode(titles[j]);
+                dlist.appendChild(dtitle);
+                dlist.appendChild(ddesc);
+                dtitle.appendChild(dtitle_text);
+                ddesc.appendChild(ddesc_text);
+            }
+            var header = document.createElement("h2");
+            header2.textContent = "Abbreviation";
+            document.body.insertBefore(header, dlist);
+        }
+        //文献来源链接表
+        function displayCitations() {
+            //取得所有的blockquote元素
+            var quote = document.getElementsByTagName("blockquote");
+            for (var i = 0; i < quote.length; i++) {
+                //在使用元素方法时，不确定时最好用nodetyp测试一次，若要取其中某个位置的元素，最好是取得所有元素再按下标取值。
+                var url = quote[i].cite;
+                var link = document.createElement("a");
+                link.href = url;
+                link.textContent = "source";
+                var superscript = document.createElement("sup");
+                superscript.appendChild(link);
+                var quoteElements = quote[i].getElementsByTagName("*");
+                var elem = quoteElements[quoteElements.length - 1];
+                elem.appendChild(superscript);
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <h1>What is the Document Object Model</h1>
+    <p>the <attr title="World w ide Web Consortium"> W3C </attr>defines the <attr title="the Document Object Model">DOM</attr> as:</p>
+    <blockquote cite="http://baidu.com">
+        <p>A platform-and languange-neutral interface that will allow programs and scripts to dynamically access and update the content,stucture the style of documents.</p>
+    </blockquote>
+    <p>Its an <attr title="Application Programming Interface">API</attr> that can be uesed to navigate <attr title="HyyperText Markup Language">HTML</attr> and <attr title="eXtensible Markup Language">XML</attr> document</p>
+
+</body>
+</html>

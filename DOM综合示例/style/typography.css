@@ -1,0 +1,9 @@
+﻿a{
+    text-decoration:none;
+}
+header nav a{
+    font-weight:bold;
+}
+article p{
+    margin:1em 0;
+}

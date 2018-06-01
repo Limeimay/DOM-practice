@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            padding: 5px;
+        }
+
+        caption {
+            font-weight: bold;
+        }
+
+        table, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            text-align: left;
+        }
+
+        thead {
+            background: grey;
+        }
+    </style>
+    <script>
+        window.onload = ChangeCSS;
+        function ChangeCSS() {
+            var odd = false;
+            var tbody = document.getElementById("tbody");
+            var rows = tbody.getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+                if (odd == true) {
+                    rows[i].style.background = "grey";
+                    odd = false;
+                }
+                else {
+                    rows[i].style.background = "";
+                    odd = true;
+                }
+                rows[i].onmouseover = function () {
+                    this.style.fontWeight="bold"
+                }
+                rows[i].onmouseout = function () {
+                    this.style.fontWeight = "normal"
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <caption>ltinerary</caption>
+        <thead>
+            <tr>
+                <th>When</th>
+                <th>Where</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <tr>
+                <td>June 9th</td>
+                <td>Portland.OR</td>
+            </tr>
+            <tr>
+                <td>June 9th</td>
+                <td>Portland.OR</td>
+            </tr>
+            <tr>
+                <td>June 9th</td>
+                <td>Portland.OR</td>
+            </tr>
+            <tr>
+                <td>June 9th</td>
+                <td>Portland.OR</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
